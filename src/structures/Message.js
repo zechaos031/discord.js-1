@@ -107,7 +107,12 @@ class Message extends Base {
     } else if (typeof this.tts !== 'boolean') {
       this.tts = null;
     }
-
+    
+    if('replyUser' in data){
+      this.replyUser = data.replyUser
+    }else  if(typeof  this.replyUser !== 'boolean'){
+      this.replyUser = null
+    }
     /**
      * A random number or string used for checking message delivery
      * <warn>This is only received after the message was sent successfully, and
